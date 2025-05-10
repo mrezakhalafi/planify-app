@@ -23,8 +23,11 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: 'Fandi & Vivi | Wedding Ceremony',
+  title: 'Fandi & Vivi - Wedding',
   description: 'Join us in celebration of our special day',
+   icons: {
+    icon: '/images/love.webp',
+   }
 };
 
 export default function RootLayout({

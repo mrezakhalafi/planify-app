@@ -24,26 +24,26 @@ export default function StorySection() {
   const timeline = [
     {
       title: "First Met",
-      date: "March 2012",
-      image: "/images/together.jpeg",
-      description: "We first met in junior high school. We were in the same class and became fast friends. We would sit together during lunch and recess, and we would study together for exams."
+      date: "March 2013",
+      image: "/images/smp.png",
+      description: "We first met in junior high school. She was my senior, and I was intimidated by her at first. But we soon became close friends, and we would study together for exams and hang out during lunch and recess."
     },
     {
       title: "First Date",
-      date: "June 2018",
-      image: "/images/together.jpeg",
+      date: "June 2017",
+      image: "/images/dates.jpeg",
       description: "After graduating from high school, we started dating. We would go on dates to the movies and try out new restaurants. We loved trying new foods and drinks together."
     },
     {
       title: "In a Relationship",
-      date: "October 2022",
+      date: "October 2019",
       image: "/images/together.jpeg",
-      description: "We started college and began living together. We would study together and go on adventures on the weekends. We loved exploring new places and trying new things together."
+      description: "We started college in diferrent cities. But we always study together and go on adventures on the weekends. We loved exploring new places and trying new things together."
     },
     {
       title: "The Proposal",
       date: "January 2025",
-      image: "/images/together.jpeg",
+      image: "/images/ring.jpg",
       description: "After graduating from college, we started working. I proposed to her on a romantic getaway to Bekasi. I took her to a beautiful restaurant overlooking the city, and I got down on one knee and asked her to be my wife."
     }
   ];

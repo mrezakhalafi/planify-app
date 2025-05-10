@@ -47,7 +47,8 @@ export function Navbar() {
 
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {['Home', 'Details', 'Events', 'Story', 'Gallery', 'Ready?'].map((item) => (
+          {/* {['Home', 'Details', 'Events', 'Story', 'Gallery', 'Countdown'].map((item) => ( */}
+          {['Home', 'Details', 'Events', 'Story', 'Countdown'].map((item) => (
             <Link
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -62,7 +63,8 @@ export function Navbar() {
         {isMenuOpen && (
           <div className="absolute top-full left-0 right-0 bg-black/90 backdrop-blur-md mt-0 py-4 md:hidden animate-fade-in">
             <nav className="flex flex-col space-y-4 px-6">
-              {['Home', 'Details', 'Events', 'Story', 'Gallery', 'Ready?'].map((item) => (
+              {/* {['Home', 'Details', 'Events', 'Story', 'Gallery', 'Countdown'].map((item) => ( */}
+              {['Home', 'Details', 'Events', 'Story', 'Countdown'].map((item) => (
                 <Link
                   key={item}
                   href={`#${item.toLowerCase()}`}
