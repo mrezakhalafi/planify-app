@@ -27,7 +27,7 @@ export default function DetailsSection() {
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
           <h2 className="font-script text-primary text-5xl mb-6">Hello Reza!</h2>
           <div className="max-w-2xl mx-auto">
-            <p className="text-xl font-playfair mb-2">May 20th, 2025, Bekasi, Indonesia</p>
+            <p className="text-xl font-playfair mb-2">June 20th, 2025, Bekasi, Indonesia</p>
             <p className="text-gray-600">We would love to have you join our special day</p>
           </div>
         </div>

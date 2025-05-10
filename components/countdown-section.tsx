@@ -52,7 +52,7 @@ export default function CountdownSection() {
   }, []);
 
   return (
-    <section id="countdown" className="countdown-gradient py-24 text-white">
+    <section id="countdown" className="countdown-gradient py-40 text-white">
       <div className="container mx-auto px-4 text-center">
         <div className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
           <div className="mb-8">
