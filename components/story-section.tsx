@@ -24,27 +24,27 @@ export default function StorySection() {
   const timeline = [
     {
       title: "First Met",
-      date: "June 2020",
-      image: "https://images.pexels.com/photos/3358707/pexels-photo-3358707.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      description: "We first met at a mutual friend's dinner party in Brooklyn. Fandi accidentally spilled wine on Vivi's dress, and their conversation started with apologies but ended with phone numbers exchanged."
+      date: "March 2012",
+      image: "/images/together.jpeg",
+      description: "We first met in junior high school. We were in the same class and became fast friends."
     },
     {
       title: "First Date",
-      date: "July 2020",
-      image: "https://images.pexels.com/photos/4255483/pexels-photo-4255483.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      description: "Our first date was at a small Italian restaurant in the West Village. What was planned as a quick dinner turned into a five-hour conversation about everything from childhood memories to future dreams."
+      date: "June 2018",
+      image: "/images/together.jpeg",
+      description: "After graduating from high school, we started dating. We would go on dates to the movies and try out new restaurants."
     },
     {
       title: "In a Relationship",
-      date: "October 2020",
-      image: "https://images.pexels.com/photos/5905857/pexels-photo-5905857.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      description: "After a few wonderful months of dating, we made it official during a weekend trip to the Catskills. Under a star-filled sky, we realized we had found something special."
+      date: "October 2022",
+      image: "/images/together.jpeg",
+      description: "We started college and began living together. We would study together and go on adventures on the weekends."
     },
     {
       title: "The Proposal",
-      date: "December 2023",
-      image: "https://images.pexels.com/photos/4611738/pexels-photo-4611738.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      description: "On a snowy evening in Central Park, Vivi proposed with a ring hidden inside a book of poetry - Fandi's favorite. Surrounded by twinkling holiday lights, we promised forever to each other."
+      date: "January 2025",
+      image: "/images/together.jpeg",
+      description: "After graduating from college, we started working. I proposed to her on a romantic getaway to Bekasi."
     }
   ];
 

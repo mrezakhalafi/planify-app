@@ -25,7 +25,7 @@ export default function DetailsSection() {
     <section id="details" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-          <h2 className="font-script text-primary text-5xl mb-6">Hello name!</h2>
+          <h2 className="font-script text-primary text-5xl mb-6">Hello Reza!</h2>
           <div className="max-w-2xl mx-auto">
             <p className="text-xl font-playfair mb-2">May 20th, 2025, Bekasi, Indonesia</p>
             <p className="text-gray-600">We would love to have you join our special day</p>
@@ -36,7 +36,7 @@ export default function DetailsSection() {
           <div className={`text-center ${isVisible ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
             <div className="relative mx-auto w-48 h-48 mb-6 overflow-hidden rounded-full border-4 border-primary/20">
               <Image 
-                src="https://images.pexels.com/photos/1308885/pexels-photo-1308885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                src="/images/fandi.jpeg" 
                 alt="Fandi" 
                 layout="fill"
                 objectFit="cover"
@@ -45,14 +45,14 @@ export default function DetailsSection() {
             </div>
             <h3 className="font-script text-primary text-3xl mb-2">Fandi Setiadi</h3>
             <p className="text-gray-600 max-w-xs mx-auto">
-              Anak tunggal bla bla
+              The first and only child of one sibling <br/>(Born in 1998)
             </p>
           </div>
 
           <div className={`text-center ${isVisible ? 'animate-slide-up' : 'opacity-0'}`} style={{ animationDelay: '0.4s' }}>
             <div className="relative mx-auto w-48 h-48 mb-6 overflow-hidden rounded-full border-4 border-primary/20">
               <Image 
-                src="https://images.pexels.com/photos/1982852/pexels-photo-1982852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+                src="/images/vivi.jpeg" 
                 alt="Vivi" 
                 layout="fill"
                 objectFit="cover"
@@ -61,7 +61,7 @@ export default function DetailsSection() {
             </div>
             <h3 className="font-script text-primary text-3xl mb-2">Vivi Natasyah</h3>
             <p className="text-gray-600 max-w-xs mx-auto">
-              Anak tunggal bla bla
+              The first child of two siblings <br/>(Born in 1997)
             </p>
           </div>
         </div>

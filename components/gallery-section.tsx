@@ -23,31 +23,43 @@ export default function GallerySection() {
 
   const galleryImages = [
     {
-      src: "https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      src: "/images/together.jpeg",
       alt: "Our first date",
       wide: true,
       tall: false
     },
     {
-      src: "https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      src: "/images/together.jpeg",
       alt: "Sunset walk on the beach",
       wide: false,
       tall: true
     },
     {
-      src: "https://images.pexels.com/photos/1415131/pexels-photo-1415131.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      src: "/images/together.jpeg",
       alt: "Beautiful sunrise",
       wide: false,
       tall: false
     },
     {
-      src: "https://images.pexels.com/photos/1024960/pexels-photo-1024960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      src: "/images/together.jpeg",
       alt: "Weekend getaway",
       wide: true,
       tall: true
     },
     {
-      src: "https://images.pexels.com/photos/3244513/pexels-photo-3244513.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      src: "/images/together.jpeg",
+      alt: "Proposal day",
+      wide: false,
+      tall: false
+    },
+     {
+      src: "/images/together.jpeg",
+      alt: "Proposal day",
+      wide: false,
+      tall: false
+    },
+     {
+      src: "/images/together.jpeg",
       alt: "Proposal day",
       wide: false,
       tall: false

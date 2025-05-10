@@ -25,18 +25,18 @@ export default function EventsSection() {
   const events = [
     {
       title: "Main Ceremony",
-      date: "November 20, 2024",
-      time: "2:00 PM - 4:00 PM",
-      location: "St. Patrick's Cathedral",
-      address: "5th Avenue, New York, NY",
+      date: "June 20, 2024",
+      time: "16:00 PM - 17:00 PM",
+      location: "Rumah UI/UX",
+      address: "Jl. Cluster Nirwana, RT.004/RW.003, Jatibening Baru, Bekasi",
       description: "Join us for our wedding ceremony where we will exchange vows and begin our journey together as a married couple."
     },
     {
       title: "Wedding Party",
-      date: "November 20, 2024",
-      time: "6:00 PM - 11:00 PM",
-      location: "The Plaza Hotel",
-      address: "768 5th Avenue, New York, NY",
+      date: "June 20, 2024",
+      time: "18:00 PM - 20:00 PM",
+      location: "SMA Muhammadiyah 11",
+      address: "Jl. Balai Pustaka Barat No.2 4, RT.4/RW.12, Rawamangun, East Jakarta",
       description: "After the ceremony, join us for dinner, dancing, and celebration at our wedding reception."
     }
   ];

@@ -12,7 +12,7 @@ export default function CountdownSection() {
   });
 
   // Set wedding date - November 20, 2024
-  const weddingDate = new Date('2025-05-20T14:00:00').getTime();
+  const weddingDate = new Date('2025-06-20T14:00:00').getTime();
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -57,7 +57,7 @@ export default function CountdownSection() {
         <div className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
           <div className="mb-8">
             <span className="text-8xl md:text-9xl font-playfair">{timeLeft.days}</span>
-            <p className="text-xl text-white/80 mt-2">days until our wedding</p>
+            <p className="text-xl text-white/80 mt-2">Days until our wedding</p>
           </div>
 
           <div className="grid grid-cols-3 gap-4 max-w-md mx-auto">

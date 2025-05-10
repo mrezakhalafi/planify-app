@@ -9,7 +9,7 @@ export function Footer() {
           <Link href="/" className="font-script text-3xl text-primary">
             Fandi & Vivi
           </Link>
-          <p className="mt-2 text-white/70">May 20th, 2025</p>
+          <p className="mt-2 text-white/70">June 20th, 2025</p>
         </div>
         
         <div className="flex justify-center space-x-6 mb-8">
@@ -34,7 +34,7 @@ export function Footer() {
           <p className="flex items-center justify-center gap-2">
             Made with <Heart size={14} className="text-primary fill-current" /> for our special day
           </p>
-          <p className="mt-2">&copy; {new Date().getFullYear()} Fandi & Vivi. All rights reserved.</p>
+          <p className="mt-2">&copy; {new Date().getFullYear()} Planify. All rights reserved.</p>
         </div>
       </div>
     </footer>
