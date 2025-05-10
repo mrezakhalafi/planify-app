@@ -13,6 +13,8 @@ const config: Config = {
         sans: ['var(--font-inter)'],
         playfair: ['var(--font-playfair)'],
         'great-vibes': ['var(--font-great-vibes)'],
+        poppins: ['Poppins', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { Calendar, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Calendar, MapPin, Instagram, Facebook, Twitter, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function HeroSection() {
@@ -17,12 +17,13 @@ export default function HeroSection() {
       className="hero-gradient min-h-screen flex flex-col items-center justify-center text-white relative"
     >
       <div className="container mx-auto px-4 py-20 text-center z-10">
-        <div className={`space-y-6 ${isLoaded ? 'animate-fade-in' : 'opacity-0'}`}>
+        <div className={`${isLoaded ? 'animate-fade-in' : 'opacity-0'}`}>
+          <p className="text-lg md:text-xl text-white/80 mb-8 font-mono">The Wedding of</p>
           <h1 className="font-script text-5xl md:text-7xl lg:text-8xl text-white mb-2">
             Fandi & Vivi
           </h1>
-          <p className="text-lg md:text-xl text-white/80 mb-8">
-            We are getting married
+          <p className="text-lg md:text-xl text-white/80 mb-8 font-mono">
+            Dear <strong>Reza</strong>, We're so excited to share this special moment with you ♥
           </p>
           
           <div className="flex justify-center space-x-4 my-8">
@@ -45,9 +46,10 @@ export default function HeroSection() {
           
           <Button 
             variant="default" 
-            className="bg-white text-black hover:bg-primary hover:text-white mt-4 rounded-full px-8 py-6 text-lg animate-pulse"
+            className="bg-white text-primary font-bold hover:bg-primary hover:text-white mt-4 rounded-full px-8 py-6 text-md shadow font-mono"
           >
-            RSVP Now
+            <Mail size={20} className="mr-2 font-bold" />
+            OPEN INVITATION
           </Button>
         </div>
       </div>

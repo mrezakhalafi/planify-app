@@ -32,8 +32,8 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <Link href="/" className="text-white font-script text-2xl md:text-3xl">
-          Wedding
+        <Link href="/" className="text-white font-script text-2xl md:text-4xl">
+          Wedding Ceremony
         </Link>
 
         {/* Mobile menu button */}

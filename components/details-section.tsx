@@ -25,9 +25,9 @@ export default function DetailsSection() {
     <section id="details" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-          <h2 className="font-script text-primary text-5xl mb-6">Hello!</h2>
+          <h2 className="font-script text-primary text-5xl mb-6">Hello name!</h2>
           <div className="max-w-2xl mx-auto">
-            <p className="text-xl font-playfair mb-2">November 20th, 2024, New York, USA</p>
+            <p className="text-xl font-playfair mb-2">May 20th, 2025, Bekasi, Indonesia</p>
             <p className="text-gray-600">We would love to have you join our special day</p>
           </div>
         </div>
@@ -43,9 +43,9 @@ export default function DetailsSection() {
                 className="transition-transform duration-500 hover:scale-110"
               />
             </div>
-            <h3 className="font-script text-primary text-3xl mb-2">Fandi Johnson</h3>
+            <h3 className="font-script text-primary text-3xl mb-2">Fandi Setiadi</h3>
             <p className="text-gray-600 max-w-xs mx-auto">
-              Daughter of Mr. and Mrs. Johnson, Fandi is a creative soul with a passion for art and nature.
+              Anak tunggal bla bla
             </p>
           </div>
 
@@ -59,9 +59,9 @@ export default function DetailsSection() {
                 className="transition-transform duration-500 hover:scale-110"
               />
             </div>
-            <h3 className="font-script text-primary text-3xl mb-2">Vivi Martinez</h3>
+            <h3 className="font-script text-primary text-3xl mb-2">Vivi Natasyah</h3>
             <p className="text-gray-600 max-w-xs mx-auto">
-              Daughter of Mr. and Mrs. Martinez, Vivi is a dedicated educator with a love for literature and travel.
+              Anak tunggal bla bla
             </p>
           </div>
         </div>

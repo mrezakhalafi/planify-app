@@ -12,7 +12,7 @@ export default function CountdownSection() {
   });
 
   // Set wedding date - November 20, 2024
-  const weddingDate = new Date('2024-11-20T14:00:00').getTime();
+  const weddingDate = new Date('2025-05-20T14:00:00').getTime();
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {

@@ -9,7 +9,7 @@ export function Footer() {
           <Link href="/" className="font-script text-3xl text-primary">
             Fandi & Vivi
           </Link>
-          <p className="mt-2 text-white/70">November 20th, 2024</p>
+          <p className="mt-2 text-white/70">May 20th, 2025</p>
         </div>
         
         <div className="flex justify-center space-x-6 mb-8">
