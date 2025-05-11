@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { Footer } from '@/components/footer';
 import { Navbar } from '@/components/navbar';
 import { JetBrains_Mono } from 'next/font/google';
+import SnowfallClient from '@/components/snowfall';
 
 const jetbrains = JetBrains_Mono({
   subsets: ['latin'],
@@ -40,6 +41,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${playfair.variable} ${jetbrains.variable} ${greatVibes.variable} font-poppins`}>
         <ThemeProvider attribute="class" defaultTheme="light">
           <Navbar />
+           <SnowfallClient />
           {children}
           <Footer />
         </ThemeProvider>

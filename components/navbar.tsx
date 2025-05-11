@@ -53,6 +53,13 @@ export function Navbar() {
               key={item}
               href={`#${item.toLowerCase()}`}
               className="text-white hover:text-primary transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById(item.toLowerCase());
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               {item}
             </Link>
@@ -69,7 +76,14 @@ export function Navbar() {
                   key={item}
                   href={`#${item.toLowerCase()}`}
                   className="text-white hover:text-primary py-2 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMenuOpen(false);
+                    const element = document.getElementById(item.toLowerCase());
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                 >
                   {item}
                 </Link>

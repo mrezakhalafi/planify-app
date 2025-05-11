@@ -1,15 +1,31 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { Calendar, MapPin, Instagram, Facebook, Twitter, Mail } from 'lucide-react';
+import { Instagram, Facebook, Twitter, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 export default function HeroSection() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [canScroll, setCanScroll] = useState(false);
+
+  const searchParams = useSearchParams();
+  const name = searchParams.get('name') || 'Reza';
 
   useEffect(() => {
     setIsLoaded(true);
-  }, []);
+
+      if (!canScroll && typeof window !== 'undefined' && window.scrollY === 0) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+      
+       return () => {
+        document.body.style.overflow = 'auto'; // reset saat unmount
+      };
+  }, [canScroll]);
 
   return (
     <section 
@@ -23,7 +39,7 @@ export default function HeroSection() {
             Fandi & Vivi
           </h1>
           <p className="text-lg md:text-xl text-white/80 mb-8 font-mono">
-            Dear <strong>Reza</strong>, We're so excited to share this special moment with you ♥
+            Dear <strong>{name}</strong>, We're so excited to share this special moment with you ♥
           </p>
           
           <div className="flex justify-center space-x-4 my-8">
@@ -43,20 +59,33 @@ export default function HeroSection() {
               </a>
             ))}
           </div>
-          
-          <Button 
-            variant="default" 
-            className="bg-white text-primary font-bold hover:bg-primary hover:text-white mt-4 rounded-full px-8 py-6 text-md shadow font-mono"
-          >
-            <Mail size={20} className="mr-2 font-bold" />
-            OPEN INVITATION
-          </Button>
+          <Link href="#details">
+            <Button 
+              variant="default" 
+              className="bg-white text-primary font-bold hover:bg-primary hover:text-white mt-4 rounded-full px-8 py-6 text-md shadow font-mono"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById("details");
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                  (document.getElementById("song") as HTMLMediaElement)?.play();
+                  setCanScroll(true)
+                }
+              }}
+            >
+              <Mail size={20} className="mr-2 font-bold" />
+              OPEN INVITATION
+            </Button>
+          </Link>
         </div>
       </div>
+
+      <audio id="song" autoPlay loop className="hidden">
+        <source src="sound/westlife.mp3" type="audio/mp3" />
+      </audio>
       
       <div className="absolute bottom-8 left-0 right-0 flex justify-center">
         <a 
-          href="#details" 
           className="text-white animate-bounce"
           aria-label="Scroll down"
         >

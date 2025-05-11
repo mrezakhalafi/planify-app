@@ -2,9 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 
 export default function DetailsSection() {
   const [isVisible, setIsVisible] = useState(false);
+
+  const searchParams = useSearchParams();
+  const name = searchParams.get('name') || 'Reza';
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -25,7 +29,7 @@ export default function DetailsSection() {
     <section id="details" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-          <h2 className="font-script text-primary text-5xl mb-6">Hello Reza!</h2>
+          <h2 className="font-script text-primary text-5xl mb-6">Hello {name}!</h2>
           <div className="max-w-2xl mx-auto">
             <p className="text-xl font-playfair mb-2">June 20th, 2025, Bekasi, Indonesia</p>
             <p className="text-gray-600">We would love to have you join our special day</p>
