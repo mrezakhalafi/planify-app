@@ -67,6 +67,15 @@ app.post('/api/ovo-payment', async (req, res) => {
   
 });
 
+app.get('/api/check-payment/:id', async (req, res) => {
+
+  const response = await xenditPaymentRequestClient.getPaymentRequestByID({ 
+    paymentRequestId: req.params.id
+  });
+  res.status(200).json(response.status);
+
+});
+
 app.listen(PORT, () => {
   console.log(`🚀 Server ready di http://localhost:${PORT}`);
 });
