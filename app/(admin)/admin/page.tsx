@@ -23,7 +23,10 @@ export default function Admin() {
 
     const data = await response.json();
     if (response.ok) {
-      console.log('Payment created:', data);
+
+      // console.log(data);
+      localStorage.setItem('id_payment', data.id);
+      window.location.href = data.url;
     } else {
       console.error('Payment error:', data.error);
     }

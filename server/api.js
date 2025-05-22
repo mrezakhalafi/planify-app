@@ -4,8 +4,9 @@ import cors from 'cors';
 const secretKey = 'xnd_development_tXbcsCoAUjYAqB0YBhSverOSKY52hAASzOG06ggAz2LzXnouBM4UeFU83KD0U2LR';
 const allowedOrigins = ['http://localhost:3000'];
 
-import { Xendit, Balance as BalanceClient} from 'xendit-node';
+import { Xendit, Balance as BalanceClient, PaymentRequest as PaymentRequestClient} from 'xendit-node';
 const xenditBalanceClient = new BalanceClient({secretKey: secretKey});
+const xenditPaymentRequestClient = new PaymentRequestClient({secretKey: secretKey});
 
 const app = express();
 const PORT = 5050;
@@ -37,33 +38,32 @@ app.get('/api/balance', async (req, res) => {
 
 app.post('/api/ovo-payment', async (req, res) => {
 
-    const { amount, externalID, phone } = req.body;
-
-    try {
-    const response = await PaymentRequest.createPaymentRequest({
-      reference_id: externalID,
-      currency: 'IDR',
-      amount: amount,
-      description: 'Pembayaran via OVO',
-      payment_method: {
-        type: 'EWALLET',
-        reusability: 'ONE_TIME_USE',
-        customer_id: externalID, // opsional, tapi disarankan
+    const data = {
+      country: 'ID',
+      amount: 15000,
+      paymentMethod: {
         ewallet: {
-          channel_code: 'ID_OVO',
-          channel_properties: {
-            mobile_number: phone, // gunakan nomor HP dari body
-            success_redirect_url: 'https://domain.com/success '
-          }
-        }
-      }
+          channelProperties: {
+            mobile_number: '+628123456789',
+            successReturnUrl: 'http://localhost:3000/admin',
+          },
+          channelCode: 'SHOPEEPAY',
+        },
+        reusability: 'ONE_TIME_USE',
+        type: 'EWALLET',
+      },
+      currency: 'IDR',
+      referenceId: 'example-ref-1234',
+    };
+
+    const response = await xenditPaymentRequestClient.createPaymentRequest({
+      data,
     });
 
-    res.status(200).json(response);
-  } catch (error) {
-    console.error('Full error:', JSON.stringify(error.response?.data, null, 2));
-    res.status(500).json({ error: 'Payment failed' });
-  }
+    res.status(200).json({ 
+      id: response.id, 
+      url: response.actions[0].url
+    });
   
 });
 
