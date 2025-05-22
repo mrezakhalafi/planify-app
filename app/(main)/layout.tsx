@@ -1,4 +1,4 @@
-import './globals.css';
+import '../globals.css';
 import type { Metadata } from 'next';
 import { Inter, Playfair_Display, Great_Vibes } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
