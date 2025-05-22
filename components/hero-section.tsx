@@ -36,7 +36,7 @@ export default function HeroSection() {
         <div className={`${isLoaded ? 'animate-fade-in' : 'opacity-0'}`}>
           <p className="text-lg md:text-xl text-white/80 mb-8 font-mono">The Wedding of</p>
           <h1 className="font-script text-5xl md:text-7xl lg:text-8xl text-white mb-2">
-            Fandi & Vivi
+            Saddam & Refo
           </h1>
           <p className="text-lg md:text-xl text-white/80 mb-8 font-mono">
             Dear <strong>{name}</strong>, We're so excited to share this special moment with you ♥
