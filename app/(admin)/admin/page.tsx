@@ -156,6 +156,24 @@ function signInWithFacebook() {
   window.location.href = 'http://localhost:5000/auth/facebook';
 }
 
+async function sendSMS() {
+   const response = await fetch('http://localhost:5000/auth/send-sms', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        code: '123456',
+      }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+
+    } else {
+      console.error('SMS error:', data.error);
+    }
+}
+
   return (
     <main className="min-h-screen bg-gradient-to-r from-gray-200 to-gray-400 p-8 flex items-center justify-center">
         <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
@@ -199,6 +217,10 @@ function signInWithFacebook() {
             </button>
               <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 mt-4" onClick={signInWithFacebook}>
               Sign In With Facebook
+            </button>
+            <hr className="my-5"/>
+              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 mt-4" onClick={sendSMS}>
+              Send OTP via SMS
             </button>
         </div>
     </main>

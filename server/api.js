@@ -5,6 +5,7 @@ import session from 'express-session';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
 import dotenv from 'dotenv';
+import twilio from 'twilio';
 
 dotenv.config();
 
@@ -32,7 +33,14 @@ app.use(cors({
   credentials: true
 }));
 
-// SECTION WIGN IN WITH GOOGLE 
+// SECTION TWILIO SMS
+
+const client = twilio(
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_TOKEN
+);
+
+// SECTION SIGN IN WITH GOOGLE 
 
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -246,6 +254,25 @@ app.get('/auth/facebook/callback',
      res.json(req.user);
   }
 );
+
+app.post('/auth/send-sms', async (req, res) => {
+  const phoneNumber = req.query.phone;
+  const otpCode = Math.floor(1000 + Math.random() * 9000);
+
+  try {
+    const message = await client.messages.create({
+      body: `Kode OTP kamu adalah: ${otpCode}`,
+      from: '+6281293291580',
+      to: '+62895610513305', 
+    });
+
+    console.log('OTP terkirim:', message.sid);
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Gagal kirim OTP:', err.message);
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`🚀 Server ready di http://localhost:${PORT}`);
