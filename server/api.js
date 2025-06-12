@@ -1,5 +1,12 @@
 import express from 'express';
 import cors from 'cors';
+import passport from 'passport';
+import session from 'express-session';
+import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+import { Strategy as FacebookStrategy } from 'passport-facebook';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const secretKey = 'xnd_development_tXbcsCoAUjYAqB0YBhSverOSKY52hAASzOG06ggAz2LzXnouBM4UeFU83KD0U2LR';
 const allowedOrigins = ['http://localhost:3000'];
@@ -24,6 +31,43 @@ app.use(cors({
   methods: ["GET", "POST"],
   credentials: true
 }));
+
+// SECTION WIGN IN WITH GOOGLE 
+
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
+
+passport.use(new GoogleStrategy({
+  clientID: process.env.GOOGLE_CLIENT_ID,
+  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  callbackURL: '/auth/google/callback'
+}, (accessToken, refreshToken, profile, done) => {
+  return done(null, profile);
+}));
+
+passport.use(new FacebookStrategy({
+  clientID: process.env.FACEBOOK_APP_ID,
+  clientSecret: process.env.FACEBOOK_APP_SECRET,
+  callbackURL: '/auth/facebook/callback',
+  profileFields: ['id', 'emails', 'name', 'picture.type(large)']
+}, (accessToken, refreshToken, profile, done) => {
+  return done(null, profile);
+}));
+
+// SECTION XENDDIT API 
 
 app.get('/api/balance', async (req, res) => {
   try {
@@ -180,6 +224,28 @@ app.get('/api/check-payment/:id', async (req, res) => {
   res.status(200).json(response.status);
 
 });
+
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] })
+);
+
+app.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/' }),
+  (req, res) => {
+    res.json(req.user);
+  }
+);
+
+app.get('/auth/facebook', 
+  passport.authenticate('facebook', { scope: ['email'] })
+);
+
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/' }),
+  (req, res) => {
+     res.json(req.user);
+  }
+);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server ready di http://localhost:${PORT}`);

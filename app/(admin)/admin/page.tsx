@@ -148,11 +148,18 @@ export default function Admin() {
     }
   }
 
+function signInWithGoogle() {
+  window.location.href = 'http://localhost:5000/auth/google';
+}
+
+function signInWithFacebook() {
+  window.location.href = 'http://localhost:5000/auth/facebook';
+}
 
   return (
-    <main className="min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-6 flex items-center justify-center">
+    <main className="min-h-screen bg-gradient-to-r from-gray-200 to-gray-400 p-8 flex items-center justify-center">
         <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-            <h1 className="text-3xl font-extrabold text-center text-gray-900 mb-6">Xendit Transaction</h1>
+            <h1 className="text-3xl font-extrabold text-center text-gray-900 mb-6">Xendit Transaction & Login OAuth</h1>
             <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300" onClick={checkPay}>
                 Check Balance
             </button>
@@ -186,6 +193,13 @@ export default function Admin() {
                 </button>
               </div>
             )}
+            <hr className="my-5"/>
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300" onClick={signInWithGoogle}>
+              Sign In With Google
+            </button>
+              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 mt-4" onClick={signInWithFacebook}>
+              Sign In With Facebook
+            </button>
         </div>
     </main>
   );
