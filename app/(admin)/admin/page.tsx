@@ -1,11 +1,12 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { QRCodeSVG } from 'qrcode.react';
 
 export default function Admin() {
   const [amount, setAmount] = React.useState('');
   const [price, setPrice] = React.useState('');
   const [qr, setQR] = React.useState('');
+  const recaptchaRef = useRef(null);
 
   const checkPay = async () => {
     const response = await fetch(`http://localhost:5000/api/balance`);
@@ -174,17 +175,25 @@ async function sendSMS() {
     }
 }
 
+ useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <main className="min-h-screen bg-gradient-to-r from-gray-200 to-gray-400 p-8 flex items-center justify-center">
         <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-            <h1 className="text-3xl font-extrabold text-center text-gray-900 mb-6">Xendit Transaction & Login OAuth</h1>
+            <h1 className="text-3xl font-extrabold text-center text-gray-900 mb-6">Xendit Transaction & Login OAuth & ReCaptcha Google</h1>
             <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300" onClick={checkPay}>
                 Check Balance
             </button>
-            {amount && <p className="mt-4 text-center text-2xl font-large text-gray-800">Saldo Anda : Rp {amount}</p>}
+            {amount && <p className="mt-4 pt-2 text-center text-1xl font-large text-gray-800">Saldo Anda : Rp {amount}</p>}
             <hr className="my-5"/>
             <div className="mt-4">
-                <label className="block text-2xl font-large text-gray-700 mb-1">Harga : Rp 500.000</label>
+                <label className="block text-1xl font-large text-gray-700 mb-1">Harga : Rp 500.000</label>
                 {/* <input type="number" className="block w-full text-gray-900 px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" value={price} onChange={e => setPrice(parseInt(e.target.value, 10))} /> */}
             </div>
             <button className="w-full mt-4 bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300" onClick={payWithOVO}>
@@ -219,9 +228,15 @@ async function sendSMS() {
               Sign In With Facebook
             </button>
             <hr className="my-5"/>
-              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 mt-4" onClick={sendSMS}>
+              <button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300" onClick={sendSMS}>
               Send OTP via SMS
             </button>
+            <hr className="my-5"/>
+              <div
+              className="g-recaptcha"
+              data-sitekey="6LeW3eMZAAAAAFVF6bdO3hLDh5zyI3l4q07Vlf3h"
+              ref={recaptchaRef}>
+            </div>
         </div>
     </main>
   );

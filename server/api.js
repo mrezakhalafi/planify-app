@@ -256,7 +256,6 @@ app.get('/auth/facebook/callback',
 );
 
 app.post('/auth/send-sms', async (req, res) => {
-  const phoneNumber = req.query.phone;
   const otpCode = Math.floor(1000 + Math.random() * 9000);
 
   try {
